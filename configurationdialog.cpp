@@ -16,7 +16,7 @@ ConfigurationDialog::~ConfigurationDialog()
 
 void ConfigurationDialog::on_pushButton_MediaPath_clicked()
 {
-    ui->lineEdit_MediaPath->setText(QFileDialog::getOpenFileName(this,tr("Open Media File"),ui->lineEdit_MediaPath->text(),tr("Media (*.mp4)")););
+    ui->lineEdit_MediaPath->setText(QFileDialog::getOpenFileName(this,tr("Open Media File"),ui->lineEdit_MediaPath->text(),tr("Media (*.mp4;*.avi)")));
 }
 
 void ConfigurationDialog::on_pushButton_Apply_clicked()

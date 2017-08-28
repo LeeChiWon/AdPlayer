@@ -7,7 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     playerWidget=new PlayerWidget();
-    connect(&ConfigDlg,SIGNAL(MediaChanged()),playerWidget,SLOT()
+    connect(&ConfigDlg,SIGNAL(MediaChanged()),playerWidget,SLOT(MediaChange()));
 }
 
 MainWindow::~MainWindow()
@@ -17,10 +17,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_actionConfiguration_triggered()
 {
-
+    ConfigDlg.exec();
 }
 
 void MainWindow::on_actionExit_triggered()
 {
-
+    this->close();
 }

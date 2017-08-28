@@ -5,6 +5,7 @@
 #include <QtWidgets>
 #include <QMediaPlayer>
 #include <QMediaPlaylist>
+#include <QVideoWidget>
 
 class PlayerWidget : public QWidget
 {
@@ -23,6 +24,9 @@ private:
     QMediaPlayer *Player;
     QMediaPlaylist *PlayList;
     QVideoWidget *VideoWidget;
+    QSettings *Setting;
+
+    void SettingInit();
 
 };
 

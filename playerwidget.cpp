@@ -3,30 +3,30 @@
 PlayerWidget::PlayerWidget(QWidget *parent) : QWidget(parent)
   ,VideoWidget(0)
 {
+    SettingInit();
     Player=new QMediaPlayer(this);
     PlayList=new QMediaPlaylist();
-    Player->setPlaylist(PlayList);
+    VideoWidget = new QVideoWidget();
 
-    player = new QMediaPlayer;
+    QBoxLayout *layout = new QVBoxLayout;
+    layout->addWidget(VideoWidget);
+    setLayout(layout);
 
-    playlist = new QMediaPlaylist(player);
-    playlist->addMedia(QUrl("http://example.com/myclip1.mp4"));
-    playlist->addMedia(QUrl("http://example.com/myclip2.mp4"));
-
-    videoWidget = new QVideoWidget;
-    player->setVideoOutput(videoWidget);
-
-    videoWidget->show();
-    playlist->setCurrentIndex(1);
-    player->play();
-
-
+    Player->setVideoOutput(VideoWidget);
+    VideoWidget->show();
 }
 
 void PlayerWidget::MediaChange()
 {
     Player->stop();
-    PlayList->clear();
-    PlayList->addMedia()
+   // PlayList->clear();
+   // PlayList->addMedia(QMediaContent(QUrl(QString("file:///c:/1.avi"))));
+   // Player->setPlaylist(PlayList);
+    Player->setMedia(QUrl(QString("file:///c:/1.avi")));
+    Player->play();
+}
 
+void PlayerWidget::SettingInit()
+{
+    Setting=new QSettings("EachOne","AdPlayer",this);
 }
